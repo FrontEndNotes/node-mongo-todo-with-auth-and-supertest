@@ -26,12 +26,19 @@ C:\Program Files\MongoDB\Server\3.4\bin>mongod.exe --dbpath c:\mongodb\dbs
 
 ## Run
 
-## Running the app
-TodoApp database is created automatically on first use.
+### Running the app
+TodoApp database is created automatically on first use. Start the app:
 
 ```
 \node-mongo-todo-with-supertest> npm start
 ```
+### Test manually
+Use chrome addons like: 
+```
+[Postman](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop)
+```
+Open Postman and import provided MongoDB - TodoApp.postman_collection.json file.
+
 
 ## Running CRUD tests
 TodoAppTest database is created automatically on first use.
@@ -39,3 +46,4 @@ TodoAppTest database is created automatically on first use.
 ```
 \node-mongo-todo-with-supertest> npm run test-watch
 ```
+
