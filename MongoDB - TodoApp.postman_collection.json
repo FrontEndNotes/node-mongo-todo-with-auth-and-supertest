@@ -1,0 +1,91 @@
+{
+	"variables": [],
+	"info": {
+		"name": "MongoDB - TodoApp",
+		"_postman_id": "8a80587f-eb14-755f-2afa-0b095e77ae6e",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET /todos",
+			"request": {
+				"url": "http://localhost:3000/todos",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"text\":\"Todo from POSTMAN ;)\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "POST /todos",
+			"request": {
+				"url": "http://localhost:3000/todos",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"text\":\"Todo from POSTMAN ;)\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "POST /todos/:id",
+			"request": {
+				"url": "http://localhost:3000/todos/59a9b743f3ce1411d0617d95",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"text\":\"Todo from POSTMAN 2 ;)\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "PATCH /todos/:id",
+			"request": {
+				"url": "http://localhost:3000/todos/59aa502f062afe34b0071ba8",
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"completed\": false,\n\t\"text\":\"Updated by POSTMAN\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
