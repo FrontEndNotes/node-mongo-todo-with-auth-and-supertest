@@ -33,10 +33,7 @@ TodoApp database is created automatically on first use. Start the app:
 \node-mongo-todo-with-supertest> npm start
 ```
 ### Test manually
-Use chrome addons like: 
-```
-[Postman](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop)
-```
+Use chrome addons like: [Postman](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop)
 Open Postman and import provided MongoDB - TodoApp.postman_collection.json file.
 
 
