@@ -47,3 +47,23 @@ TodoAppTest database is created automatically on first use.
 \node-mongo-todo-with-supertest> npm run test-watch
 ```
 
+
+## Steps to deploy the app on heroku
+
+### 1. mLab.com - MongoDB as a service
+    - create new database and name it 'todoapp'
+    - create user to connect to this DB
+    - copy connection string from the screen  and
+      changing <user> and <password> to created user credentials 
+      i.e. mongodb://johndoe:secretpass@ds123456.mlab.com:21494/todoapp
+
+### 2. command line 
+    - \node-mongo-todo-with-supertest> heroku create
+    - \node-mongo-todo-with-supertest> git push heroku master
+
+### 3. heroku.com 
+    - log in to heroku, click on app name (created in 2. step)
+    - go to 'Settings' tab
+    - under 'Config Variables' create variable:
+      KEY: MONGODB_URI
+      VALUE: mongodb://johndoe:secretpass@ds123456.mlab.com:21494/todoapp
