@@ -1,6 +1,7 @@
 # Project Title
 
-Node based CRUD TodoApp with Node, Express, MongoDB, Mongoose. CRUD tests applied.
+Node based CRUD TodoApp with JWT authentication and tests.
+
 
 ## Prerequisites
 
@@ -52,7 +53,7 @@ TodoAppTest database is created automatically on first use.
     - create user to connect to this DB
     - copy connection string from the screen  and
       changing <user> and <password> to created user credentials 
-      i.e. mongodb://johndoe:secretpass@ds123456.mlab.com:21494/todoapp
+      i.e. mongodb://username:password@ds123456.mlab.com:21494/todoapp
 
 ### 2. command line 
     - \node-mongo-todo-with-supertest> heroku create
@@ -63,4 +64,9 @@ TodoAppTest database is created automatically on first use.
     - go to 'Settings' tab
     - under 'Config Variables' create variable:
       KEY: MONGODB_URI
-      VALUE: mongodb://johndoe:secretpass@ds123456.mlab.com:21494/todoapp
+      VALUE: mongodb://username:password@ds123456.mlab.com:21494/todoapp
+
+
+## External resources
+- [jwt.io](https://jwt.io/)
+- [http statuses](https://httpstatuses.com/)

@@ -8,14 +8,120 @@
 	},
 	"item": [
 		{
+			"name": "POST /users",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"const token = postman.getResponseHeader('x-auth')",
+							"postman.setEnvironmentVariable(\"x-auth\", token);"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "{{url}}/users",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"email\":\"john.doe@example.com\",\n\t\"password\":\"doe123\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "GET /users/me",
+			"request": {
+				"url": "{{url}}/users/me",
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-auth",
+						"value": "{{x-auth}}",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE /users/me/token",
+			"request": {
+				"url": "{{url}}/users/me/token",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "x-auth",
+						"value": "{{x-auth}}",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "POST /users/login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"const token = postman.getResponseHeader('x-auth')",
+							"postman.setEnvironmentVariable(\"x-auth\", token);"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "{{url}}/users/login",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"email\":\"john.doe@example.com\",\n\t\"password\":\"doe123\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
 			"name": "GET /todos",
 			"request": {
-				"url": "http://localhost:3000/todos",
+				"url": "{{url}}/todos",
 				"method": "GET",
 				"header": [
 					{
 						"key": "Content-Type",
 						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "x-auth",
+						"value": "{{x-auth}}",
 						"description": ""
 					}
 				],
@@ -29,13 +135,31 @@
 		},
 		{
 			"name": "POST /todos",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"// convert JSON to JS object",
+							"var body = JSON.parse(responseBody);",
+							"postman.setEnvironmentVariable(\"todoID\", body._id);"
+						]
+					}
+				}
+			],
 			"request": {
-				"url": "http://localhost:3000/todos",
+				"url": "{{url}}/todos",
 				"method": "POST",
 				"header": [
 					{
 						"key": "Content-Type",
 						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "x-auth",
+						"value": "{{x-auth}}",
 						"description": ""
 					}
 				],
@@ -48,14 +172,19 @@
 			"response": []
 		},
 		{
-			"name": "POST /todos/:id",
+			"name": "GET /todos/:id",
 			"request": {
-				"url": "http://localhost:3000/todos/59a9b743f3ce1411d0617d95",
+				"url": "{{url}}/todos/{{todoID}}",
 				"method": "GET",
 				"header": [
 					{
 						"key": "Content-Type",
 						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "x-auth",
+						"value": "{{x-auth}}",
 						"description": ""
 					}
 				],
@@ -70,12 +199,17 @@
 		{
 			"name": "PATCH /todos/:id",
 			"request": {
-				"url": "http://localhost:3000/todos/59aa502f062afe34b0071ba8",
+				"url": "{{url}}/todos/{{todoID}}",
 				"method": "PATCH",
 				"header": [
 					{
 						"key": "Content-Type",
 						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "x-auth",
+						"value": "{{x-auth}}",
 						"description": ""
 					}
 				],
@@ -83,6 +217,23 @@
 					"mode": "raw",
 					"raw": "{\n\t\"completed\": false,\n\t\"text\":\"Updated by POSTMAN\"\n}"
 				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE /todos/:id",
+			"request": {
+				"url": "{{url}}/todos/{{todoID}}",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "x-auth",
+						"value": "{{x-auth}}",
+						"description": ""
+					}
+				],
+				"body": {},
 				"description": ""
 			},
 			"response": []
