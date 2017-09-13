@@ -5,8 +5,11 @@
   "main": "index.js",
   "scripts": {
     "start": "node server/server.js",
-    "test": "export NODE_ENV=test || SET \"NODE_ENV=test\" && mocha server/**/*.test.js",
-    "test-watch": "nodemon --exec \"npm test\""
+    "start-aa": "node server/server.async-await.js",
+    "test": "export NODE_ENV=test || SET \"NODE_ENV=test\" && mocha server/tests/server.test.js",
+    "test-aa": "export NODE_ENV=test || SET \"NODE_ENV=test\" && mocha server/tests/server.async-await.test.js",
+    "test-watch": "nodemon --exec \"npm test\"",
+    "test-watch-aa": "nodemon --exec \"npm test-aa\""
   },
   "engines": {
     "node": "8.2.1"
